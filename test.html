@@ -1,0 +1,272 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body><style>table {width:80%} table, th, td { font-size:14px; font-family:"Calibri"; border: 2px solid #808080; border-collapse: collapse;}th, td{padding: 10px;text-align: left; color: black; font-weight: bold; line-height: 1.5em;}</style><div style="font-family:calibri,arial;font-size:1em;border:0px solid #e7e7e;padding:5px"><strong><h2>SAP Financial Integration Monitoring</h2></strong><small>This message is automatically generated each time your SAP Financial Integration timer is executed.<br/>You receive this notification as your email address is configured in system constant KETTLE_LOGGING_EMAILS. <br/><br/>Converis Server on https://converis.um6p.ma/<br/><br/></small></div><div style="font-family:calibri,arial;font-size:1em;border:0px solid #e7e7e;padding:5px"><h3>Errors</h3></div><table><tr><td style="width:80%; margin:left; padding-top:15px; padding-bottom:15px; border:2px solid #808080; text-align:center; color: black; font-size: 18px; font-weight: bold; line-height: 1.5em;">No file validation errors were detected. Check Error Log for more details.</td></tr></table><br/><br/><div style="font-family:calibri,arial;font-size:1em;border:0px solid #e7e7e;padding:5px"><h3>Duplicates</h3></div><table><tr><td style="width:80%; margin:left; padding-top:15px; padding-bottom:15px; border:2px solid #808080; text-align:center; color: black; font-size: 18px; font-weight: bold; line-height: 1.5em;">No duplicates were detected. Check Error Log for more details.</td></tr></table><br/><br/><div style="font-family:calibri,arial;font-size:1em;border:0px solid #e7e7e;padding:5px"><h3>Missing Projects</h3></div><table><tr><td style="width:80%; margin:left; padding-top:15px; padding-bottom:15px; border:2px solid #808080; text-align:center; color: black; font-size: 18px; font-weight: bold; line-height: 1.5em;">No missing projects were detected. Check Error Log for more details.</td></tr></table><br/><br/><div style="font-family:calibri,arial;font-size:1em;border:0px solid #e7e7e;padding:5px"><h3>Error Log</h3></div>2022/03/15 12:09:38 - SAPFinancialIntegration - Start of job execution
+2022/03/15 12:09:38 - SAPFinancialIntegration - Starting entry [cleanup]
+2022/03/15 12:09:38 - cleanup - Using run configuration [Pentaho local]
+2022/03/15 12:09:38 - cleanup - Running transformation using the Kettle execution engine
+2022/03/15 12:09:38 - cleanup - Dispatching started for transformation [cleanup]
+2022/03/15 12:09:38 - Get File Names.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/03/15 12:09:38 - Select filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - Delete report file.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - SAPFinancialIntegration - Starting entry [getStartTime]
+2022/03/15 12:09:38 - getStartTime - Using run configuration [Pentaho local]
+2022/03/15 12:09:38 - getStartTime - Running transformation using the Kettle execution engine
+2022/03/15 12:09:38 - getStartTime - Dispatching started for transformation [getStartTime]
+2022/03/15 12:09:38 - Get System Date.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - ------------> Linenr 1------------------------------
+2022/03/15 12:09:38 - Write to log.0 - --getStartTime--
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - now = 2022/03/15 12:09:38.217
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - ====================
+2022/03/15 12:09:38 - Set Variables.0 - Setting environment variables...
+2022/03/15 12:09:38 - Set Variables.0 - Set variable startTime to value [2022/03/15 12:09:38.217]
+2022/03/15 12:09:38 - Write to log.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - Set Variables.0 - Finished after 1 rows.
+2022/03/15 12:09:38 - Set Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - SAPFinancialIntegration - Starting entry [Set variables]
+2022/03/15 12:09:38 - SAPFinancialIntegration - Starting entry [filesValidation]
+2022/03/15 12:09:38 - filesValidation - Starting entry [getMetadataFullPath]
+2022/03/15 12:09:38 - getMetadataFullPath - Using run configuration [Pentaho local]
+2022/03/15 12:09:38 - getMetadataFullPath - Running transformation using the Kettle execution engine
+2022/03/15 12:09:38 - getMetadataFullPath - Dispatching started for transformation [getMetadataFullPath]
+2022/03/15 12:09:38 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - ------------> Linenr 1------------------------------
+2022/03/15 12:09:38 - Write to log.0 - --getMetadataFullPath--
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - metadata = metadata.xlsx
+2022/03/15 12:09:38 - Write to log.0 - path = file:///opt/converis/kettle/converis/sapfinancedata
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - ====================
+2022/03/15 12:09:38 - Set Variables.0 - Setting environment variables...
+2022/03/15 12:09:38 - Set Variables.0 - Set variable metadataFileName to value [file:///opt/converis/kettle/converis/sapfinancedata/SourceData/metadata.xlsx]
+2022/03/15 12:09:38 - Set Variables.0 - Set variable file_path to value [file:///opt/converis/kettle/converis/sapfinancedata/SourceData/]
+2022/03/15 12:09:38 - Add constants.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - Write to log.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - file_path.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - metadataFileName.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - Set Variables.0 - Finished after 1 rows.
+2022/03/15 12:09:38 - Set Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - filesValidation - Starting entry [getSourceFileName]
+2022/03/15 12:09:38 - getSourceFileName - Using run configuration [Pentaho local]
+2022/03/15 12:09:38 - getSourceFileName - Running transformation using the Kettle execution engine
+2022/03/15 12:09:38 - getSourceFileName - Dispatching started for transformation [getSourceFileName]
+2022/03/15 12:09:38 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - ------------> Linenr 1------------------------------
+2022/03/15 12:09:38 - Write to log.0 - --getSourceFileName--
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - sourcefile = sapfinance
+2022/03/15 12:09:38 - Write to log.0 - file_path = file:///opt/converis/kettle/converis/sapfinancedata/SourceData/
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - ====================
+2022/03/15 12:09:38 - Get System Date.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - Write to log.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - Get filename.0 - Optimization level set to 9.
+2022/03/15 12:09:38 - Transform Date.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - Set Variables.0 - Setting environment variables...
+2022/03/15 12:09:38 - Set Variables.0 - Set variable sourceFileName to value [file:///opt/converis/kettle/converis/sapfinancedata/SourceData/sapfinance_2022-03-15.xlsx]
+2022/03/15 12:09:38 - Set Variables.0 - Set variable filename to value [sapfinance_2022-03-15.xlsx]
+2022/03/15 12:09:38 - Get filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - file_path.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - Set Variables.0 - Finished after 1 rows.
+2022/03/15 12:09:38 - Set Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:38 - filesValidation - Starting entry [metadataValidation]
+2022/03/15 12:09:38 - metadataValidation - Using run configuration [Pentaho local]
+2022/03/15 12:09:38 - metadataValidation - Running transformation using the Kettle execution engine
+2022/03/15 12:09:38 - metadataValidation - Dispatching started for transformation [metadataValidation]
+2022/03/15 12:09:38 - get variables.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:38 - table structure.0 - Finished processing (I=0, O=0, R=0, W=7, U=0, E=0)
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - ------------> Linenr 1------------------------------
+2022/03/15 12:09:38 - Write to log.0 - --metadataValidation--
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - metadataFileName = file:///opt/converis/kettle/converis/sapfinancedata/SourceData/metadata.xlsx
+2022/03/15 12:09:38 - Write to log.0 - metadata = metadata.xlsx
+2022/03/15 12:09:38 - Write to log.0 - file_path = file:///opt/converis/kettle/converis/sapfinancedata/SourceData/
+2022/03/15 12:09:38 - Write to log.0 - 
+2022/03/15 12:09:38 - Write to log.0 - ====================
+2022/03/15 12:09:38 - Write to log.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:39 - Sort rows (2).0 - Finished processing (I=0, O=0, R=7, W=7, U=0, E=0)
+2022/03/15 12:09:39 - get file header.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:39 - file exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:39 - Split field to rows.0 - Finished processing (I=0, O=0, R=1, W=14, U=0, E=0)
+2022/03/15 12:09:39 - Add constants (3).0 - Finished processing (I=0, O=0, R=7, W=14, U=0, E=0)
+2022/03/15 12:09:39 - Sort rows (1).0 - Finished processing (I=0, O=0, R=7, W=7, U=0, E=0)
+2022/03/15 12:09:39 - Merge Join.0 - Finished processing (I=0, O=0, R=14, W=7, U=0, E=0)
+2022/03/15 12:09:39 - column missing?.0 - Finished processing (I=0, O=0, R=7, W=7, U=0, E=0)
+2022/03/15 12:09:39 - to many columns?.0 - Finished processing (I=0, O=0, R=7, W=0, U=0, E=0)
+2022/03/15 12:09:39 - get filename (2).0 - Finished processing (I=0, O=0, R=7, W=0, U=0, E=0)
+2022/03/15 12:09:39 - get filename (1).0 - Finished processing (I=0, O=0, R=7, W=0, U=0, E=0)
+2022/03/15 12:09:40 - filesValidation - Starting entry [checkAttributes]
+2022/03/15 12:09:40 - checkAttributes - Using run configuration [Pentaho local]
+2022/03/15 12:09:40 - checkAttributes - Running transformation using the Kettle execution engine
+2022/03/15 12:09:40 - checkAttributes - Dispatching started for transformation [checkAttributes]
+2022/03/15 12:09:40 - get variables.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:40 - Write to log.0 - 
+2022/03/15 12:09:40 - Write to log.0 - ------------> Linenr 1------------------------------
+2022/03/15 12:09:40 - Write to log.0 - --checkAttributes--
+2022/03/15 12:09:40 - Write to log.0 - 
+2022/03/15 12:09:40 - Write to log.0 - metadata = metadata.xlsx
+2022/03/15 12:09:40 - Write to log.0 - converis_api_url = https://converis.um6p.ma/converis-apis/ws/v1/
+2022/03/15 12:09:40 - Write to log.0 - metadataFileName = file:///opt/converis/kettle/converis/sapfinancedata/SourceData/metadata.xlsx
+2022/03/15 12:09:40 - Write to log.0 - 
+2022/03/15 12:09:40 - Write to log.0 - ====================
+2022/03/15 12:09:40 - File exists.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:40 - Write to log.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:40 - file exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:40 - yes.0 - Finished processing (I=0, O=0, R=1, W=3, U=0, E=0)
+2022/03/15 12:09:40 - metadata file input.0 - Finished processing (I=9, O=0, R=1, W=18, U=0, E=0)
+2022/03/15 12:09:40 - Select values (2).0 - Finished processing (I=0, O=0, R=9, W=9, U=0, E=0)
+2022/03/15 12:09:40 - Sort rows.0 - Finished processing (I=0, O=0, R=9, W=9, U=0, E=0)
+2022/03/15 12:09:40 - String operations (2).0 - Finished processing (I=0, O=0, R=9, W=9, U=0, E=0)
+2022/03/15 12:09:40 - Unique entity names.0 - Finished processing (I=0, O=0, R=9, W=2, U=0, E=0)
+2022/03/15 12:09:40 - Concatenate entity names.0 - Finished processing (I=0, O=0, R=2, W=1, U=0, E=0)
+2022/03/15 12:09:40 - Block (1).0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:40 - API request for entity.0 - Optimization level set to 9.
+2022/03/15 12:09:40 - Join Rows (1).0 - Finished processing (I=0, O=0, R=2, W=1, U=0, E=0)
+2022/03/15 12:09:40 - API request for entity.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:40 - Split url.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:40 - Split Entities.0 - Finished processing (I=0, O=0, R=2, W=4, U=0, E=0)
+2022/03/15 12:09:40 - unique rows.0 - Finished processing (I=0, O=0, R=4, W=2, U=0, E=0)
+2022/03/15 12:09:40 - Add constants.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2022/03/15 12:09:40 - get entities.0 - ERROR (version 9.0.0.0-423, build 9.0.0.0-423 from 2020-01-31 04.53.04 by buildguy) : Because of an error, this step can't continue: 
+2022/03/15 12:09:40 - get entities.0 - Can not result from [https://converis.um6p.ma/converis-apis/ws/v1/data/entities/BudgetItem?startRecord=1&count=1]
+2022/03/15 12:09:40 - get entities.0 - javax.net.ssl.SSLException: Certificate for <converis.um6p.ma> doesn't match common name of the certificate subject: converisapp.um6p.local
+2022/03/15 12:09:40 - checkAttributes - ERROR (version 9.0.0.0-423, build 9.0.0.0-423 from 2020-01-31 04.53.04 by buildguy) : Errors detected!
+2022/03/15 12:09:40 - get entities.0 - ERROR (version 9.0.0.0-423, build 9.0.0.0-423 from 2020-01-31 04.53.04 by buildguy) : org.pentaho.di.core.exception.KettleException: 
+2022/03/15 12:09:40 - get entities.0 - Can not result from [https://converis.um6p.ma/converis-apis/ws/v1/data/entities/BudgetItem?startRecord=1&count=1]
+2022/03/15 12:09:40 - get entities.0 - javax.net.ssl.SSLException: Certificate for <converis.um6p.ma> doesn't match common name of the certificate subject: converisapp.um6p.local
+2022/03/15 12:09:40 - get entities.0 - 
+2022/03/15 12:09:40 - get entities.0 - 	at org.pentaho.di.trans.steps.rest.Rest.callRest(Rest.java:273)
+2022/03/15 12:09:40 - get entities.0 - 	at org.pentaho.di.trans.steps.rest.Rest.processRow(Rest.java:470)
+2022/03/15 12:09:40 - get entities.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2022/03/15 12:09:40 - get entities.0 - 	at java.lang.Thread.run(Thread.java:748)
+2022/03/15 12:09:40 - get entities.0 - Caused by: com.sun.jersey.api.client.ClientHandlerException: javax.net.ssl.SSLException: Certificate for <converis.um6p.ma> doesn't match common name of the certificate subject: converisapp.um6p.local
+2022/03/15 12:09:40 - get entities.0 - 	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187)
+2022/03/15 12:09:40 - get entities.0 - 	at com.sun.jersey.api.client.filter.HTTPBasicAuthFilter.handle(HTTPBasicAuthFilter.java:105)
+2022/03/15 12:09:40 - get entities.0 - 	at com.sun.jersey.api.client.Client.handle(Client.java:652)
+2022/03/15 12:09:40 - get entities.0 - 	at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682)
+2022/03/15 12:09:40 - get entities.0 - 	at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74)
+2022/03/15 12:09:40 - get entities.0 - 	at com.sun.jersey.api.client.WebResource$Builder.get(WebResource.java:509)
+2022/03/15 12:09:40 - get entities.0 - 	at org.pentaho.di.trans.steps.rest.Rest.callRest(Rest.java:183)
+2022/03/15 12:09:40 - get entities.0 - 	... 3 more
+2022/03/15 12:09:40 - get entities.0 - Caused by: javax.net.ssl.SSLException: Certificate for <converis.um6p.ma> doesn't match common name of the certificate subject: converisapp.um6p.local
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.conn.ssl.AbstractVerifier.verify(AbstractVerifier.java:185)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.conn.ssl.BrowserCompatHostnameVerifier.verify(BrowserCompatHostnameVerifier.java:62)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.conn.ssl.AbstractVerifier.verify(AbstractVerifier.java:153)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.conn.ssl.AbstractVerifier.verify(AbstractVerifier.java:115)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.conn.ssl.SSLSocketFactory.verifyHostname(SSLSocketFactory.java:577)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.conn.ssl.SSLSocketFactory.createLayeredSocket(SSLSocketFactory.java:571)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.conn.ssl.SSLSocketFactory.connectSocket(SSLSocketFactory.java:554)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.conn.ssl.SSLSocketFactory.connectSocket(SSLSocketFactory.java:415)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:605)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:440)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
+2022/03/15 12:09:40 - get entities.0 - 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+2022/03/15 12:09:40 - get entities.0 - 	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:171)
+2022/03/15 12:09:40 - get entities.0 - 	... 9 more
+2022/03/15 12:09:40 - get entities.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=1)
+2022/03/15 12:09:40 - checkAttributes - Transformation detected one or more steps with errors.
+2022/03/15 12:09:40 - checkAttributes - Transformation is killing the other steps!
+2022/03/15 12:09:41 - checkAttributes - ERROR (version 9.0.0.0-423, build 9.0.0.0-423 from 2020-01-31 04.53.04 by buildguy) : Errors detected!
+2022/03/15 12:09:41 - filesValidation - Finished job entry [checkAttributes] (result=[false])
+2022/03/15 12:09:41 - filesValidation - Finished job entry [metadataValidation] (result=[false])
+2022/03/15 12:09:41 - filesValidation - Finished job entry [getSourceFileName] (result=[false])
+2022/03/15 12:09:41 - filesValidation - Finished job entry [getMetadataFullPath] (result=[false])
+2022/03/15 12:09:41 - SAPFinancialIntegration - Starting entry [getLogs]
+2022/03/15 12:09:41 - SAPFinancialIntegration - Starting entry [ERROR: getErrors]
+2022/03/15 12:09:41 - ERROR: getErrors - Using run configuration [Pentaho local]
+2022/03/15 12:09:41 - ERROR: getErrors - Running transformation using the Kettle execution engine
+2022/03/15 12:09:41 - getErrors - Dispatching started for transformation [getErrors]
+2022/03/15 12:09:42 - Data Grid.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/03/15 12:09:42 - Add constants.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - Get System Date.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:42 - startTime.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:42 - Transform Date.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:42 - SV 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - Write to log variables.0 - 
+2022/03/15 12:09:42 - Write to log variables.0 - ------------> Linenr 1------------------------------
+2022/03/15 12:09:42 - Write to log variables.0 - --getErrors--
+2022/03/15 12:09:42 - Write to log variables.0 - 
+2022/03/15 12:09:42 - Write to log variables.0 - startTime = 2022/03/15 12:09:38.217
+2022/03/15 12:09:42 - Write to log variables.0 - 
+2022/03/15 12:09:42 - Write to log variables.0 - ====================
+2022/03/15 12:09:42 - Write to log variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - Write to log.0 - 
+2022/03/15 12:09:42 - Write to log.0 - ------------> Linenr 1------------------------------
+2022/03/15 12:09:42 - Write to log.0 - --getErrors--
+2022/03/15 12:09:42 - Write to log.0 - 
+2022/03/15 12:09:42 - Write to log.0 - startTime = 2022/03/15 12:09:38.217
+2022/03/15 12:09:42 - Write to log.0 - 
+2022/03/15 12:09:42 - Write to log.0 - ====================
+2022/03/15 12:09:42 - errorFileName.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - File exists.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - file exist?.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2022/03/15 12:09:42 - Join Rows 1.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - DES2.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/03/15 12:09:42 - DES1.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/03/15 12:09:42 - duplicates_sheet.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - Transform Date 2.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:42 - DES3.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/03/15 12:09:42 - missing_projects_sheet.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - SV2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - Write to log.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - errors_sheet.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - SV3.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - SV1.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - Timerlog.0 - Finished reading query, closing connection.
+2022/03/15 12:09:42 - Timerlog.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2022/03/15 12:09:42 - DES4.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2022/03/15 12:09:42 - timerlog message.0 - Optimization level set to 9.
+2022/03/15 12:09:42 - timerlog message.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:42 - Join Rows 2.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2022/03/15 12:09:43 - Generate message_attachment.0 - Optimization level set to 9.
+2022/03/15 12:09:43 - Join Rows 3.0 - Finished processing (I=0, O=0, R=5, W=1, U=0, E=0)
+2022/03/15 12:09:43 - Generate message_attachment.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2022/03/15 12:09:43 - SV.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - report.html(in logs).0 - Finished processing (I=0, O=1, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - Sort rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - Unique rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - Set Variables.0 - Setting environment variables...
+2022/03/15 12:09:43 - Set Variables.0 - Set variable reportFile to value [file:///opt/converis/kettle/converis/sapfinancedata/logs/report_2022-03-15.html]
+2022/03/15 12:09:43 - Set Variables.0 - Finished after 1 rows.
+2022/03/15 12:09:43 - Set Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - SAPFinancialIntegration - Starting entry [ERROR: notification]
+2022/03/15 12:09:43 - ERROR: notification - Using run configuration [Pentaho local]
+2022/03/15 12:09:43 - ERROR: notification - Running transformation using the Kettle execution engine
+2022/03/15 12:09:43 - notification - Dispatching started for transformation [notification]
+2022/03/15 12:09:43 - Get variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - KETTLE_LOGGING_EMAILS.0 - Finished reading query, closing connection.
+2022/03/15 12:09:43 - Constant of sender emails.0 - Finished reading query, closing connection.
+2022/03/15 12:09:43 - Constant of sender emails.0 - Finished processing (I=1, O=0, R=0, W=2, U=0, E=0)
+2022/03/15 12:09:43 - KETTLE_LOGGING_EMAILS.0 - Finished processing (I=1, O=0, R=0, W=1, U=0, E=0)
+2022/03/15 12:09:43 - recepient.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - Empty constants?.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2022/03/15 12:09:43 - From.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - Generate Email .0 - Optimization level set to 9.
+2022/03/15 12:09:43 - Join rows.0 - Finished processing (I=0, O=0, R=3, W=1, U=0, E=0)
+2022/03/15 12:09:43 - Get File Names.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - Generate Email .0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - mail constants available?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - Mail.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - Log: Mail sent.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2022/03/15 12:09:43 - SAPFinancialIntegration - Starting entry [INTEGRATION FAILED]
+2022/03/15 12:09:43 -  - ############ ERROR: SAP FINANCIAL INTEGRATION FAILED ############
+2022/03/15 12:09:43 -  - ############ SAP Financial integration failed due to some errors.
+2022/03/15 12:09:43 -  - ############ Please check log files to get more information.
+2022/03/15 12:09:43 - SAPFinancialIntegration - Starting entry [Abort job]
+2022/03/15 12:09:43 - Abort job - ERROR (version 9.0.0.0-423, build 9.0.0.0-423 from 2020-01-31 04.53.04 by buildguy) : Aborted SAP Financial integration due to an error.
+2022/03/15 12:09:43 - SAPFinancialIntegration - Finished job entry [Abort job] (result=[false])
+2022/03/15 12:09:43 - SAPFinancialIntegration - Finished job entry [INTEGRATION FAILED] (result=[false])
+2022/03/15 12:09:43 - SAPFinancialIntegration - Finished job entry [ERROR: notification] (result=[false])
+2022/03/15 12:09:43 - SAPFinancialIntegration - Finished job entry [ERROR: getErrors] (result=[false])
+2022/03/15 12:09:43 - SAPFinancialIntegration - Finished job entry [getLogs] (result=[false])
+2022/03/15 12:09:43 - SAPFinancialIntegration - Finished job entry [filesValidation] (result=[false])
+2022/03/15 12:09:43 - SAPFinancialIntegration - Finished job entry [Set variables] (result=[false])
+2022/03/15 12:09:43 - SAPFinancialIntegration - Finished job entry [getStartTime] (result=[false])
+2022/03/15 12:09:43 - SAPFinancialIntegration - Finished job entry [cleanup] (result=[false])
+2022/03/15 12:09:43 - SAPFinancialIntegration - Job execution finished<br/><br/><div style="font-family:calibri,arial;font-size:1em;border:0px solid #e7e7e;padding:5px"><small><i>CONFIDENTIALITY CAUTION AND DISCLAIMER<br>This message is intended only for the use of the individual(s) or entity(ies) to which it is addressed and contains information that is legally privileged and confidential. If you are not the intended recipient, or the person responsible for delivering the message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. All unintended recipients are obliged to delete this message and destroy any printed copies.</i></small></div></body></html>
