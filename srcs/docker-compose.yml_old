@@ -1,21 +1,33 @@
 version: '3'
+
 services:
-  mysql:
-    image: mariadb
+
+  # DataBase
+  mariadb:
+    build: ./mariadb/
+    container_name: my_mariadb
+    ports:
+      - 3306:3306
     volumes:
-      - /data/mysql:/var/lib/mysql
+      - /data/db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: mysql_root_pass
       MYSQL_DATABASE: db_name
       MYSQL_USER: user_name
       MYSQL_PASSWORD: user_pass
     restart: always
+    # env_file:
+    #   - .env
+
   wordpress:
-    image: wordpress:php7.3-fpm-alpine
+    build: ./wordpress/
+    container_name: my_wordpress
+    ports:
+      - 9000:9000
     volumes:
-      - /data/html:/var/www/html
+      - /date/html:/var/www/html
     depends_on:
-      - mysql
+      - mariadb
     environment:
       WORDPRESS_DB_HOST: mysql
       MYSQL_ROOT_PASSWORD: mysql_root_pass
@@ -24,14 +36,18 @@ services:
       WORDPRESS_DB_PASSWORD: user_pass
       WORDPRESS_TABLE_PREFIX: wp_
     links:
-      - mysql
+      - mariadb
     restart: always
+
   nginx:
+    build: ./nginx/
+    container_name: my_ngnix
     image: nginx:alpine
     volumes:
-      - /nginx:/etc/nginx/conf.d
+      # - /nginx:/etc/nginx/conf.d
       - /data/html:/var/www/html
     ports:
-      - 8080:80
+      - 80:80
     links:
       - wordpress
+    restart: always

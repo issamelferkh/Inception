@@ -5,12 +5,8 @@
 - Makefile required and must be located at the root of your directory.
 - It must set up your entire application (i.e., it has to build the Docker images using docker-compose.yml).
 
-
-
 - VM
 - docker-compose
-
-
 
 - Each Docker image must have the same name as its corresponding service.
 - Each service has to run in a dedicated container.
@@ -47,6 +43,16 @@ wil’s website
 - [x] Install Docker Engine on Ubuntu
 - [x] Install Docker Compose
 
+https://www.howtoforge.com/tutorial/dockerizing-wordpress-with-nginx-and-php-fpm/
+- [x] Step 1 - Install Docker
+- [x] Step 2 - Install Docker-Compose
+- [ ] Step 3 - Setup Wordpress
+- [ ] Step 4 - Configure Docker-Compose
+- [ ] Step 5 - Run Docker-compose
+- [ ] Step 6 - Install Wordpress
+
+
+
 ## Resources
 - [Install Ubuntu Server 20.04.4 LTS VM](https://ubuntu.com/download/server)
 - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
@@ -55,3 +61,18 @@ wil’s website
 
 
 
+## Help
+
+clear docker 
+
+
+sudo docker system prune -a
+sudo docker volume rm $(sudo docker volume ls)
+
+
+sudo docker stop $(sudo docker ps -aq)
+sudo docker rm $(sudo docker ps -aq)
+sudo docker rmi -f $(sudo docker images -aq)
+
+
+http://40.71.118.127
