@@ -76,3 +76,36 @@ sudo docker rmi -f $(sudo docker images -aq)
 
 
 http://40.71.118.127
+
+
+
+
+issam123!
+
+XibXKmcxwXYbJK*JnV
+
+
+- Create Certs
+https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-centos-7
+
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./nginx-selfsigned.key -out ./nginx-selfsigned.crt
+
+
+
+
+## Clean Server
+sudo apt-get clean
+sudo apt-get autoremove
+sudo journalctl --vacuum-time=1d
+
+
+```
+#!/bin/bash
+# Removes old revisions of snaps
+# CLOSE ALL SNAPS BEFORE RUNNING THIS
+set -eu
+snap list --all | awk '/disabled/{print $1, $3}' |
+    while read snapname revision; do
+        snap remove "$snapname" --revision="$revision"
+    done
+```
