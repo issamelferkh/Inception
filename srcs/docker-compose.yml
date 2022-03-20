@@ -1,37 +1,52 @@
 version: '3'
+
 services:
-  mysql:
-    image: mariadb
-    volumes:
-      - /data/mysql:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: mysql_root_pass
-      MYSQL_DATABASE: db_name
-      MYSQL_USER: user_name
-      MYSQL_PASSWORD: user_pass
+
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
     restart: always
+    # environment:
+    #   MYSQL_DATABASE: wordpress
+    #   MYSQL_USER: issam
+    #   MYSQL_PASSWORD: issam123!
+    #   MYSQL_ROOT_PASSWORD: issam123!
+    volumes:
+      - ./data/db-data:/var/lib/mysql
+    networks:
+      - inception
+    env_file:
+      - .env
+
   wordpress:
-    image: wordpress:php7.3-fpm-alpine
-    volumes:
-      - /data/html:/var/www/html
-    depends_on:
-      - mysql
-    environment:
-      WORDPRESS_DB_HOST: mysql
-      MYSQL_ROOT_PASSWORD: mysql_root_pass
-      WORDPRESS_DB_NAME: db_name
-      WORDPRESS_DB_USER: user_name
-      WORDPRESS_DB_PASSWORD: user_pass
-      WORDPRESS_TABLE_PREFIX: wp_
-    links:
-      - mysql
+    build: ./requirements/wordpress
+    container_name: wordpress
     restart: always
-  nginx:
-    image: nginx:alpine
     volumes:
-      - /nginx:/etc/nginx/conf.d
-      - /data/html:/var/www/html
+      - ./data/www-data:/var/www/html/wordpress
+    networks:
+      - inception
+    depends_on:
+      - mariadb
+    env_file:
+      - .env
+
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx
+    restart: always
+    volumes:
+      - ./data/www-data:/var/www/html/wordpress
     ports:
-      - 8080:80
-    links:
+      - 80:80
+      - 443:443
+    networks:
+      - inception
+    depends_on:
       - wordpress
+    env_file:
+      - .env
+
+networks:
+  inception:
+    driver: bridge
