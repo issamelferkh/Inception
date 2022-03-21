@@ -1,52 +1,76 @@
-version: '3'
-
+version: "3.5"
 services:
 
-  mariadb:
-    build: ./requirements/mariadb
-    container_name: mariadb
+  # WebServer
+  nginx:
+    build: ./nginx/
+    container_name: my_nginx
     restart: always
-    # environment:
-    #   MYSQL_DATABASE: wordpress
-    #   MYSQL_USER: issam
-    #   MYSQL_PASSWORD: issam123!
-    #   MYSQL_ROOT_PASSWORD: issam123!
-    volumes:
-      - ./data/db-data:/var/lib/mysql
+    ports:
+      # - 80:80
+      - 443:443
     networks:
-      - inception
-    env_file:
-      - .env
+      - backend
+    volumes:
+      - wp:/www/wordpress
+    depends_on:
+      - wordpress
 
+  # Wordpress & PHP
   wordpress:
-    build: ./requirements/wordpress
-    container_name: wordpress
+    build: ./wordpress/
+    container_name: my_wordpress
     restart: always
-    volumes:
-      - ./data/www-data:/var/www/html/wordpress
+    ports:
+      - "9000:9000"
     networks:
-      - inception
+      - backend
+    volumes:
+      - wp:/www/wordpress
     depends_on:
       - mariadb
     env_file:
       - .env
 
-  nginx:
-    build: ./requirements/nginx
-    container_name: nginx
+  # DataBase
+  mariadb:
+    build: ./mariadb/
+    container_name: my_mariadb
     restart: always
-    volumes:
-      - ./data/www-data:/var/www/html/wordpress
     ports:
-      - 80:80
-      - 443:443
+      - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
     networks:
-      - inception
-    depends_on:
-      - wordpress
+      - backend
     env_file:
       - .env
 
+  # Adminer
+  adminer:
+    build: ./adminer/
+    container_name: my_adminer
+    restart: always
+    ports:
+      - "5000:5000"
+    networks:
+      - backend
+
+# Volumes
+volumes:
+  db:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./data/DB
+      o: bind
+  wp:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./data/WordPress
+      o: bind
+
+# Networks
 networks:
-  inception:
-    driver: bridge
+  backend:
