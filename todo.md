@@ -10,12 +10,10 @@ try this steps:
 
 
 
-
-
-
-
-- Custom nginx container
+- [ ] Custom nginx container
   - A Docker container that contains NGINX with TLSv1.2 or TLSv1.3 only.
+
+
 - Custom WP container
   - A Docker container that contains WordPress + php-fpm (it must be installed and configured) only without nginx.
 - Custom MariaDB container
