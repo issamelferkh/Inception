@@ -61,13 +61,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: ./requirements/data/DB
+      device: /home/iel-ferk/Inception/srcs/requirements/data/DB
       o: bind
   wp:
     driver: local
     driver_opts:
       type: none
-      device: ./requirements/data/WordPress
+      device: /home/iel-ferk/Inception/srcs/requirements/data/WordPress
       o: bind
 
 # Networks

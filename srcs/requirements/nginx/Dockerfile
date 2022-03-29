@@ -37,6 +37,6 @@
 
 
 FROM nginx:latest   
-COPY ./default.conf /etc/nginx/conf.d/default.conf
-ADD ./certs /etc/nginx/certs/self-signed
+COPY ./conf/default.conf /etc/nginx/conf.d/default.conf
+ADD ./conf/certs /etc/nginx/certs/self-signed
 ENTRYPOINT [ "nginx",  "-g", "daemon off;" ]
