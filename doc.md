@@ -1,3 +1,35 @@
+# Todo
+- nginx: use alpine
+- [x] use .env
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://www.howtoforge.com/tutorial/dockerizing-wordpress-with-nginx-and-php-fpm/
 ## [x] Step 1 - Install Docker
 ## [x] Step 2 - Install Docker-Compose
