@@ -1,6 +1,6 @@
-# sed -i 's|DATABASE_NAME|'${DATABASE_NAME}'|' /www/wordpress/wp-config.php
-# sed -i 's|DATABASE_USER|'${DATABASE_USER}'|' /www/wordpress/wp-config.php
-# sed -i 's|DB_USER_PASS|'${DB_USER_PASS}'|' /www/wordpress/wp-config.php
-# sed -i 's|DB__HOST|'${DB__HOST}'|' /www/wordpress/wp-config.php
+#!/bin/sh
 
-./usr/sbin/php-fpm7 -F -R
+if ! ls /www/wordpress/index.php &>/dev/null; then
+	cp -Rf /wordpress/* /www/wordpress/
+fi
+/usr/sbin/php-fpm7 --nodaemonize

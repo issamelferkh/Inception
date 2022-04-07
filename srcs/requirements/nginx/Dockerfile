@@ -1,42 +1,37 @@
-# FROM alpine
+FROM alpine:latest
 
-# # Update and Install Required Tools
-# RUN apk update
-# RUN apk add nginx openrc vim openssl
+# Update
+RUN apk update
 
-# # Create nginx root www folder
-# RUN mkdir -p /www/wordpress
+# Install nginx
+RUN apk add nginx
 
+# Add user www
+RUN adduser -D -g 'www' www
 
-# # change owner of The folder to nginx user
-# RUN chown -R nginx:nginx /var/lib/nginx
-# RUN chown -R nginx:nginx /www
+# Creat www folder to host wp srcs and change owner
+RUN mkdir /www
+RUN chown -R www:www /var/lib/nginx
+RUN chown -R www:www /www
 
+# Copy nginx config
+RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.back 
+COPY ./conf/nginx.conf /etc/nginx/
 
-# # Copy cert, key and config file
-# COPY ./default.conf /etc/nginx/conf.d/default.conf
-# COPY ./tools/script.sh /
-# COPY ./certs /etc/nginx/certs/self-signed
+# Install OpenSSL and Genarate SSL cert
+RUN apk add openssl
+RUN mkdir /etc/ssl/private
+RUN chmod 700 /etc/ssl/private
+RUN openssl req -x509 -nodes -days 365 -subj "/C=MA/ST=Beni Mellal-Khenifra/L=Khouribga/O=1337 - 42 Network/CN=iel-ferk.42.fr" -addext "subjectAltName=DNS:iel-ferk.42.fr" -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt;
+  # C=Country Name (2 letter code)=MA
+  # ST=State or Province Name (full name)=Beni Mellal-Khenifra
+  # L=Locality Name (eg, city)=Khouribga
+  # O=Organization Name:1337 - 42 Network
+  # CN=Common Name=iel-ferk.42.fr
 
-# # Start OpenRC
-# RUN openrc
-# RUN touch /run/openrc/softlevel
+# Copy Script from the local to the container
+COPY ./tools/script.sh /
+RUN chmod +x /script.sh
+ENTRYPOINT ["/script.sh"]
 
-# # VOLUME ["/sys/fs/cgroup"]
-
-# # https://superuser.com/questions/1306656/cant-run-nginx-in-alpine-linux-docker
-# # Create folder
-# RUN mkdir -p /run/nginx
-
-
-# # Run Script
-# # RUN chmod +x ./script.sh
-# # CMD ./script.sh
-# ENTRYPOINT [ "nginx",  "-g", "daemon off;" ]
-# # ENTRYPOINT ["./script.sh"]
-
-
-FROM nginx:latest   
-COPY ./conf/default.conf /etc/nginx/conf.d/default.conf
-ADD ./conf/certs /etc/nginx/certs/self-signed
-ENTRYPOINT [ "nginx",  "-g", "daemon off;" ]
+# https://wiki.alpinelinux.org/wiki/Nginx
