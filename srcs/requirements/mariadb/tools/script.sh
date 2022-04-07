@@ -1,47 +1,32 @@
 #!/bin/sh
 
-# New way: run dackup db without check if db exist
-/etc/init.d/mariadb setup
-/etc/init.d/mariadb start
+# Check if wordpress db existe 
+if [ ! -d "/var/lib/mysql/wordpress" ]; then
+  /etc/init.d/mariadb setup
+  /etc/init.d/mariadb start
 
-mysql -u ${MYSQL_ROOT} < /var/lib/mysql/wp.sql
-# rm /var/lib/mysql/wp.sql
-mysql -u ${MYSQL_ROOT} -e "CREATE USER '${DATABASE_USER}'@'localhost' IDENTIFIED BY '${DB_USER_PASS}';"
-mysql -u ${MYSQL_ROOT} -e "CREATE DATABASE wordpress;"
-mysql -u ${MYSQL_ROOT} -e "GRANT ALL PRIVILEGES ON *.* TO '${DATABASE_USER}'@'localhost' IDENTIFIED BY '${DB_USER_PASS}';"
-mysql -u ${MYSQL_ROOT} -e "CREATE USER '${DATABASE_USER}'@'%' IDENTIFIED BY '${DB_USER_PASS}';"
-mysql -u ${MYSQL_ROOT} -e "GRANT ALL PRIVILEGES ON ${DATABASE_NAME}.* TO '${DATABASE_USER}'@'%' IDENTIFIED BY '${DB_USER_PASS}';"
+  # Copy and Setup WP DB
+  cp /wp.sql  /var/lib/mysql/.
+  mysql -u ${DB_ROOT_USER} < /var/lib/mysql/wp.sql
+  rm /var/lib/mysql/wp.sql
 
-mysql -u ${MYSQL_ROOT} -e "ALTER USER '${DATABASE_USER}'@'localhost' IDENTIFIED BY '${DB_USER_PASS}';"
-mysql -u ${MYSQL_ROOT} -e "ALTER USER '${MYSQL_ROOT}'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';"
+  # Create new user and make it GRANT ALL PRIVILEGES to all DBs in localhost
+  mysql -u ${DB_ROOT_USER} -e "CREATE USER '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_PASSWORD}';"
+  # mysql -u ${DB_ROOT_USER} -e "CREATE DATABASE ${DB_NAME};"
+  mysql -u ${DB_ROOT_USER} -e "GRANT ALL PRIVILEGES ON *.* TO '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_PASSWORD}';"
+
+  mysql -u ${DB_ROOT_USER} -e "CREATE USER '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}';"
+  mysql -u ${DB_ROOT_USER} -e "GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}';"
+
+  mysql -u ${DB_ROOT_USER} -e "ALTER USER '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_PASSWORD}';"
+  mysql -u ${DB_ROOT_USER} -e "ALTER USER '${DB_ROOT_USER}'@'localhost' IDENTIFIED BY '${DB_ROOT_PASSWORD}';"
+fi
+
+# Skip Networking
 sed -i 's/skip-networking/# skip-networking/g' /etc/my.cnf.d/mariadb-server.cnf
-
-rc-service mariadb start
+rc-service mariadb restart
 rc-service mariadb stop
+
+# Run db in the foreground
 /usr/bin/mariadbd --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib/mariadb/plugin --user=mysql --pid-file=/run/mysqld/mariadb.pid
-
-# tail -f /dev/null
-
-
-
-#  Older way: check if db exist
-# if [ ! -f "/var/lib/mysql/ib_buffer_pool" ];
-# then
-# 	/etc/init.d/mariadb setup
-# 	/etc/init.d/mariadb start
-
-# 	mysql -u ${MYSQL_ROOT} < /var/lib/mysql/wp.sql
-# 	rm /var/lib/mysql/wp.sql
-# 	mysql -u ${MYSQL_ROOT} -e "CREATE USER '${DATABASE_USER}'@'localhost' IDENTIFIED BY '${DB_USER_PASS}';"
-# 	mysql -u ${MYSQL_ROOT} -e "CREATE DATABASE wordpress;"
-# 	mysql -u ${MYSQL_ROOT} -e "GRANT ALL PRIVILEGES ON *.* TO '${DATABASE_USER}'@'localhost' IDENTIFIED BY '${DB_USER_PASS}';"
-# 	mysql -u ${MYSQL_ROOT} -e "CREATE USER '${DATABASE_USER}'@'%' IDENTIFIED BY '${DB_USER_PASS}';"
-# 	mysql -u ${MYSQL_ROOT} -e "GRANT ALL PRIVILEGES ON ${DATABASE_NAME}.* TO '${DATABASE_USER}'@'%' IDENTIFIED BY '${DB_USER_PASS}';"
-
-# 	mysql -u ${MYSQL_ROOT} -e "ALTER USER '${DATABASE_USER}'@'localhost' IDENTIFIED BY '${DB_USER_PASS}';"
-# 	mysql -u ${MYSQL_ROOT} -e "ALTER USER '${MYSQL_ROOT}'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';"
-# 	sed -i 's/skip-networking/# skip-networking/g' /etc/my.cnf.d/mariadb-server.cnf
-# fi
-# rc-service mariadb start
-# rc-service mariadb stop
-# /usr/bin/mariadbd --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib/mariadb/plugin --user=mysql --pid-file=/run/mysqld/mariadb.pid
+tail -f /dev/null
