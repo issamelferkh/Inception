@@ -1,9 +1,10 @@
 #!/bin/sh
 
-echo -e "$FT_PASS\n$FT_PASS" | adduser $FT_USER
-echo $FT_USER | tee -a /etc/vsftpd.userlist
-mkdir /home/ahaddad/wordpress
-chown -R ahaddad:ahaddad /home/ahaddad/
-#chmod 777 /home/ahaddad/wordpress
+# Add ftp user
+adduser -D ${FTP_USER} && echo ${FTP_USER}:${FTP_PASS} | chpasswd
 
-exec /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+#  Change owner of /home/issam folder
+chown -R ${FTP_USER}:${FTP_USER} /home/"${FTP_USER}"
+
+# Run ftp on foreground mode 
+/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf

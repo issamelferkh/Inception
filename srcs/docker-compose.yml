@@ -1,13 +1,14 @@
 version: "3"
 services:
 
-  # DB Service
+  # Mariadb DataBase
   mariadb:
     build: ./requirements/mariadb/
+    image: mariadb
     container_name: mariadb
     restart: always
     volumes:
-      - /home/iel-ferk/Inception/srcs/requirements/data/db-data:/var/lib/mysql
+      - /home/iel-ferk/data/db-data:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
@@ -15,15 +16,16 @@ services:
     env_file:
       - .env
 
-  # Web Server Service
+  # Nginx Web Server
   nginx:
     build: ./requirements/nginx/
+    image: nginx
     container_name: nginx
     restart: always
     depends_on:
       - mariadb
     volumes:
-      - /home/iel-ferk/Inception/srcs/requirements/data/wp-data:/www/wordpress
+      - /home/iel-ferk/data/wp-data:/www/wordpress
     ports:
       - "443:443"
     networks:
@@ -31,16 +33,16 @@ services:
     env_file:
       - .env
   
-  # WordPress Service
+  # WordPress
   wordpress:
     build: ./requirements/wordpress
+    image: wordpress
     container_name: wordpress
     restart: always
     depends_on:
       - nginx
     volumes:
-      - /home/iel-ferk/Inception/srcs/requirements/data/wp-data:/www/wordpress
-      - /home/iel-ferk/Inception/srcs/requirements/data/db-data:/var/lib/mysql
+      - /home/iel-ferk/data/wp-data:/www/wordpress
     ports:
       - "9000:9000"
     networks:
@@ -51,6 +53,7 @@ services:
   # Adminer
   adminer:
     build: ./requirements/bonus/adminer/
+    image: adminer
     container_name: adminer
     restart: always
     ports:
@@ -60,72 +63,64 @@ services:
     env_file:
       - .env
     volumes:
-      - /home/iel-ferk/Inception/srcs/requirements/data/db-data:/var/lib/mysql
+      - /home/iel-ferk/data/db-data:/var/lib/mysql
     networks:
       - issam_net
 
+  # Portfolio
+  portfolio:
+    build: ./requirements/bonus/portfolio/
+    image: portfolio
+    container_name: portfolio
+    restart: always
+    ports:
+      - '5001:80'
+    networks:
+      - issam_net
 
-# redis:
-# container_name: redis
-# restart: always
-# image: redis
-# build: ./requirements/bonus/redis
-# env_file:
-# - .env
-# depends_on:
-# - wordpress
-# volumes:
-# - /home/amine/data/wp-data:/www/wordpress
-# ports:
-# - '6379:6379'
-# networks:
-# - issam_net
+  # FTP
+  # ftp:
+  #   build: ./requirements/bonus/ftp/
+  #   image: ftp
+  #   container_name: ftp
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - /home/iel-ferk/data/wp-data:/home/issam
+  #   ports:
+  #     - '2211:21'
+  #     - '21000-22000:21000-22000'
+  #   networks:
+  #     - issam_net
 
-# ftp:
-# container_name: ftp
-# image: ftp
-# restart: always
-# build: ./requirements/bonus/ftp/
-# depends_on:
-# - wordpress
-# env_file:
-# - .env
-# volumes:
-# - /home/amine/data/wp-data:/home/ahaddad 
-# ports:
-# - '21:21'
-# - '30000:30000'
-# networks:
-# - issam_net
-
-# gitea:
-# container_name: gitea
-# image: gitea
-# restart: always
-# build: ./requirements/bonus/gitea/
-# depends_on:
-# - mariadb
-# env_file:
-# - .env
-# volumes:
-# - /home/amine/data/mar-data:/var/lib/mysql
-# ports:
-# - '22:22'
-# - '3000:3000'
-# networks:
-# - issam_net
-
-# website:
-# container_name: website
-# image: website
-# restart: always
-# build: ./requirements/bonus/website/
-# ports:
-# - '4040:4040'
-# env_file:
-# - .env
-# networks:
-# - issam_net
+  # WebSite
+  website:
+    build: ./requirements/bonus/website/
+    image: website
+    container_name: website
+    restart: always
+    ports:
+      - 5002:80
+    networks:
+      - issam_net
+  
+  # Redis
+  redis:
+    build: ./requirements/bonus/redis/
+    image: redis
+    container_name: redis
+    restart: always
+    depends_on:
+      - nginx
+    env_file:
+      - .env
+    volumes:
+      - /home/iel-ferk/data/wp-data:/www/wordpress
+    ports:
+      - '6379:6379'
+    networks:
+      - issam_net
 
 networks:
   issam_net:
