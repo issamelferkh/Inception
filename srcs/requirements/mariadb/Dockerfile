@@ -7,4 +7,4 @@ RUN touch /run/openrc/softlevel
 COPY ./conf/wp.sql /
 COPY ./tools/script.sh /
 RUN chmod +x /script.sh
-ENTRYPOINT ["/bin/sh", "/script.sh"]
+ENTRYPOINT ["/script.sh"]

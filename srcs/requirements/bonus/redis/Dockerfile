@@ -1,11 +1,16 @@
 FROM alpine:latest
-RUN apk update
-RUN apk add wget
-RUN apk --update add redis 
-RUN  wget https://downloads.wordpress.org/plugin/redis-cache.2.0.22.zip
-RUN unzip  redis-cache.2.0.22.zip
-RUN rm redis-cache.2.0.22.zip
+
+# Update and Onstall dependencies
+RUN apk --update add wget redis
+
+# Download redis cache plugin
+RUN wget https://downloads.wordpress.org/plugin/redis-cache.2.0.23.zip
+RUN unzip redis-cache.2.0.23.zip
+RUN rm redis-cache.2.0.23.zip
+
+# Copy script and config files
 COPY ./conf/sysctl.conf /etc/
 COPY ./conf/redis.conf /etc/
 COPY ./tools/script.sh /
-ENTRYPOINT ["/bin/sh", "/script.sh"]
+RUN chmod +x /script.sh
+ENTRYPOINT ["/script.sh"]
