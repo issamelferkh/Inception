@@ -29,4 +29,4 @@ rc-service mariadb stop
 
 # Run db in the foreground
 /usr/bin/mariadbd --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib/mariadb/plugin --user=mysql --pid-file=/run/mysqld/mariadb.pid
-tail -f /dev/null
+# tail -f /dev/null
