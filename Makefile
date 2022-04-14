@@ -19,20 +19,22 @@ credit:
 	@echo "━━━━━━━━━━━━━━━━━━━━━━━━━━┃By :$(GREEN) iel-ferk $(RESET) ━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	@echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-
 # **************************************************************************** #
 # All                                                                          #
 # **************************************************************************** #
-all: credit rmv volumes build up
+all: credit hosts rmv volumes build up
 
 re: down rmv clean build up 
+
+hosts:
+	@echo "$(GREEN)################### Config Hosts ###################$(RESET)"
+	sudo cp /home/iel-ferk/Inception/srcs/requirements/tools/hosts /etc/.
 
 clean:
 	@echo "$(RED)################### Cleanning System ###################$(RESET)"
 	@sudo docker system prune -a -f
 
 rma: stop down rmv clean
-
 
 # **************************************************************************** #
 # lists                                                                        #

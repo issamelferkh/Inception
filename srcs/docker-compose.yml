@@ -79,20 +79,20 @@ services:
       - issam_net
 
   # FTP
-  # ftp:
-  #   build: ./requirements/bonus/ftp/
-  #   image: ftp
-  #   container_name: ftp
-  #   restart: always
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - /home/iel-ferk/data/wp-data:/home/issam
-  #   ports:
-  #     - '2211:21'
-  #     - '21000-22000:21000-22000'
-  #   networks:
-  #     - issam_net
+  ftp:
+    build: ./requirements/bonus/ftp/
+    image: ftp
+    container_name: ftp
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - /home/iel-ferk/data/wp-data:/home/issam
+    ports:
+      - '2211:21'
+      - '21000-22000:21000-22000'
+    networks:
+      - issam_net
 
   # WebSite
   website:
@@ -112,7 +112,7 @@ services:
     container_name: redis
     restart: always
     depends_on:
-      - nginx
+      - wordpress
     env_file:
       - .env
     volumes:

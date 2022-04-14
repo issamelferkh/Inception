@@ -2,16 +2,16 @@
 Before correct run the bellow cmd:
 ```sudo docker stop $(docker ps -qa); docker rm $(docker ps -qa); docker rmi -f $(docker images -qa); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q) 2>/dev/null```
 
-## General instructions
+## [x] General instructions
 - [x] use .env
-- [ ] docker-compose.yml
-  - [ ] There musn't be 'network: host' in it or 'links:'
-  - [ ] There must be 'network(s)'
-  - [ ] Makefile and all the scripts in which Docker: There musn't be '--link'
-  - [ ] Dockerfiles. If you see 'tail -f' or any command run in background in any of them in the ENTRYPOINT section,
-  - [ ] Same thing if 'bash' or 'sh' are used but not for running a script (e.g, 'nginx & bash' or 'bash').
-  - [ ] If the entrypoint is a script (e.g., ENTRYPOINT ["sh", "my_entrypoint.sh"], ENTRYPOINT ["bash", "my_entrypoint.sh"]), ensure it runs no program in background (e.g, 'nginx & bash').
-  - [ ] Examine all the scripts in the repository. Ensure none of them runs an infinite loop. The following are a few examples of prohibited commands: 'sleep infinity', 'tail -f /dev/null', 'tail -f /dev/random'
+- [x] docker-compose.yml
+  - [x] There musn't be 'network: host' in it or 'links:'
+  - [x] There must be 'network(s)'
+  - [x] Makefile and all the scripts in which Docker: There musn't be '--link'
+  - [x] Dockerfiles. If you see 'tail -f' or any command run in background in any of them in the ENTRYPOINT section,
+  - [x] Same thing if 'bash' or 'sh' are used but not for running a script (e.g, 'nginx & bash' or 'bash').
+  - [x] If the entrypoint is a script (e.g., ENTRYPOINT ["sh", "my_entrypoint.sh"], ENTRYPOINT ["bash", "my_entrypoint.sh"]), ensure it runs no program in background (e.g, 'nginx & bash').
+  - [x] Examine all the scripts in the repository. Ensure none of them runs an infinite loop. The following are a few examples of prohibited commands: 'sleep infinity', 'tail -f /dev/null', 'tail -f /dev/random'
 
 ## Mandatory part
 ### [ ] Project overview
@@ -20,6 +20,15 @@ Before correct run the bellow cmd:
   - [x] The difference between a Docker image used with docker-compose and without docker-compose
   - [x] The benefit of Docker compared to VMs
 - [ ] The pertinence of the directory structure required for this project (an example is provided in the subject's PDF file).
+
+- [ ] ftp       
+- [x] mariadb   
+- [ ] website   
+- [ ] portfolio 
+- [x] nginx     
+- [ ] adminer   
+- [x] wordpress 
+- [ ] redis     
 
 ### [ ] Simple setup
 - [x] Ensure that NGINX can be accessed by port 443 only. Once done, open the page.
